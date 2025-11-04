@@ -205,7 +205,9 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Оформление гарантии от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
-					'EMAIL' => $data['email'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
 					// ИНН
 					'UF_CRM_1724843163167' => $data['inn'] ?? '',
 					// НОМЕР ЗАКУПКИ
@@ -227,7 +229,9 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Оформление гарантии от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
-					'EMAIL' => $data['email'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
 					// ТИП ГАРАНТИИ
 					'UF_CRM_VIDOBESPECHEN' => $data['type'] ?? '',
 					// СУММА ГАРАНТИИ
@@ -268,7 +272,9 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Заявка на партнёрство от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
-					'EMAIL' => $data['email'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
 					'SOURCE_ID' => 'WEB',
 					'SOURCE_DESCRIPTION' => 'Форма партнёрства',
 					'PHONE' => [
@@ -286,7 +292,9 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Оформление выбранной гарантии от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
-					'EMAIL' => $data['email'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
 					'UF_CRM_VIDOBESPECHEN' => $data['guarantee'] ?? '',
 					'SOURCE_ID' => 'WEB',
 					'SOURCE_DESCRIPTION' => 'Карточка оформления гарантии',
