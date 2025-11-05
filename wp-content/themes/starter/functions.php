@@ -306,6 +306,25 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 			];
 			break;
 
+		// [contact-form-7 id="115" title="Работаем на результат"]
+		case 115:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Оформление гарантии от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма оформления гарантии после партнёров',
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'COMMENTS' => 'Запрос на оформление гарантии с сайта dombg.org'
+				]
+			];
+			break;
+
 		default:
 			return;
 	}
