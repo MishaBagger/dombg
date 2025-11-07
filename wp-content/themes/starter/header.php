@@ -71,13 +71,37 @@
                                 <a href="tel:<?= clearPhoneNumber(get_field('phone1', 'options')); ?>" class="header-content__top-right__phone"><? the_field('phone1', 'options'); ?></a>
                             </div>
                         </div>
-                        <? if (have_rows('menu', 'options')) { ?>
+                        <?php if (have_rows('menu', 'options')) { ?>
                             <nav class="header-content__nav">
-                                <? while (have_rows('menu', 'options')) : the_row(); ?>
-                                    <a href="#<? the_sub_field('anchor'); ?>" class="header-content__nav-item" data-scroll="true"><? the_sub_field('text'); ?></a>
-                                <? endwhile; ?>
+                                <?php while (have_rows('menu', 'options')) : the_row();
+                                    $link_type = get_sub_field('link_type') ?: 'anchor';
+                                    $text = get_sub_field('text');
+                                    $anchor = get_sub_field('anchor');
+                                    $modal_id = get_sub_field('modal_id'); // новое поле для ID модалки
+                                ?>
+
+                                    <?php if ($link_type === 'anchor') : ?>
+                                        <!-- Обычный якорь -->
+                                        <a href="#<?php echo $anchor; ?>" class="header-content__nav-item" data-scroll="true">
+                                            <?php echo $text; ?>
+                                        </a>
+
+                                    <?php elseif ($link_type === 'modal') : ?>
+                                        <!-- Модальное окно -->
+                                        <a data-fancybox data-src="#<?php echo $modal_id; ?>" href="javascript:;" class="header-content__nav-item">
+                                            <?php echo $text; ?>
+                                        </a>
+
+                                    <?php elseif ($link_type === 'external') : ?>
+                                        <!-- Внешняя ссылка -->
+                                        <a href="<?php the_sub_field('external_url'); ?>" class="header-content__nav-item" target="_blank">
+                                            <?php echo $text; ?>
+                                        </a>
+                                    <?php endif; ?>
+
+                                <?php endwhile; ?>
                             </nav>
-                        <? } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </header>

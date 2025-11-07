@@ -325,6 +325,81 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 			];
 			break;
 
+		// [contact-form-7 id="221" title="Тендерное сопровождение"]
+		case 221:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Оформление тендерного сопровождения от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню оформления тендерного сопровождения',
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'COMMENTS' => 'Запрос на оформление тендерного сопровождения с сайта dombg.org'
+				]
+			];
+			break;
+		// [contact-form-7 id="222" title="Кредитование"]
+		case 222:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Оформление кредитования от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню кредитования',
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'COMMENTS' => 'Запрос на кредитование с сайта dombg.org'
+				]
+			];
+			break;
+
+		// [contact-form-7 id="223" title="Страхование СМР"]
+		case 223:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Оформление страхования строительно-монтажных рисков от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню страхования СМР',
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'COMMENTS' => 'Запрос на страхование строительно-монтажных рисков с сайта dombg.org'
+				]
+			];
+			break;
+
+		// [contact-form-7 id="224" title="Защита в ФАС"]
+		case 224:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Оформление защиты в ФАС от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню защиты в ФАС',
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'COMMENTS' => 'Запрос на защиту в ФАС с сайта dombg.org'
+				]
+			];
+			break;
+
 		default:
 			return;
 	}

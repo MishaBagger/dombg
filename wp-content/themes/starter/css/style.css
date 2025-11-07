@@ -314,19 +314,29 @@ div.wpcf7-response-output {
 
 .header-content__nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   padding-top: 20px;
   border-top: 1px solid #c8d1db;
   margin-top: 15px;
+  gap: 45px;
+}
+
+@media (max-width: 1210px) {
+
+  .header-content__nav {
+  gap: 20px;
+  }
 }
 
 .header-content__nav-item {
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: 0.35px;
   color: #000000;
-  margin-right: 45px;
   transition: .3s color;
+  flex: 1 1;
 }
 
 .header-content__nav-item:last-child {
@@ -387,7 +397,6 @@ div.wpcf7-response-output {
   }
   .header-content__nav {
     width: calc(100% + 30px);
-    margin-left: -15px;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -412,7 +421,6 @@ div.wpcf7-response-output {
   }
   .header-content__nav {
     padding-top: 15px;
-    margin-top: 10px;
   }
   .header-content__nav-item {
     margin: 0 10px 10px 10px;
@@ -449,7 +457,6 @@ div.wpcf7-response-output {
   }
   .header-content__nav {
     padding-top: 10px;
-    margin-top: 10px;
   }
   .header-content__nav-item {
     font-size: 13px;
