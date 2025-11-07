@@ -134,6 +134,7 @@
 <script src="<?= THEME_URL ?>/js/alertify.min.js"></script>
 <script src="<?= THEME_URL ?>/js/jquery.fancybox.min.js"></script>
 <script src="<?= THEME_URL ?>/js/jquery.maskedinput.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">

@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="<?= THEME_URL ?>/css/alertify.min.css">
     <link rel="stylesheet" href="<?= THEME_URL ?>/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="<?= THEME_URL ?>/css/fonts.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <?php wp_head(); ?>
 

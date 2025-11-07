@@ -177,23 +177,47 @@ get_filename();
 </section>
 <section class="sertificates section" id="sertificates">
     <div class="container clients-container">
-        <h2 class="clients-title title"><? the_field('sertificatesTitle'); ?></h2>
-        <? if (have_rows('clientsList')) { ?>
-            <div class="clients-list">
-                <? while (have_rows('sertificatesList')) : the_row(); ?>
-                    <div class="clients-list__item">
-                        <img src="<?= wp_get_attachment_image_url(get_sub_field('sertificateImage'), 'medum'); ?>" alt="1" class="clients-list__item-content">
-                    </div>
-                <? endwhile; ?>
-                <div class="clients-list__item">
-                    и еще более
-                    <br>
-                    35 отзывов от других компаний и фирм
+        <h2 class="clients-title title"><?php the_field('sertificatesTitle'); ?></h2>
+        
+        <?php if (have_rows('sertificatesList')): ?>
+            <!-- Основной слайдер -->
+            <div class="sertificates-slider swiper">
+                <div class="swiper-wrapper">
+                    <?php while (have_rows('sertificatesList')) : the_row(); 
+                        $image_id = get_sub_field('sertificateImage');
+                        $image_url = wp_get_attachment_image_url($image_id, 'large');
+                        $image_thumb = wp_get_attachment_image_url($image_id, 'large');
+                    ?>
+                        <div class="swiper-slide" data-image="<?php echo $image_url; ?>">
+                            <img src="<?php echo $image_thumb; ?>" 
+                                 alt="Сертификат" 
+                                 class="sertificate-image">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
+                
+                <!-- Навигация -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
-        <? } ?>
+
+        <?php endif; ?>
     </div>
 </section>
+
+<!-- Модальное окно для галереи -->
+<div id="galleryModal" class="gallery-modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Увеличенное изображение">
+        <div class="modal-nav">
+            <button class="modal-prev">‹</button>
+            <button class="modal-next">›</button>
+        </div>
+    </div>
+</div>
 <section class="result section" id="result" style="background-image: url(<?= wp_get_attachment_image_url(get_field('resultImage'), 'full'); ?>)">
     <div class="container result-container">
         <h2 class="result-title title"><? the_field('resultTitle'); ?></h2>
