@@ -109,6 +109,23 @@
         </div>
     </div>
 </div>
+<div class="modalNew-wrapper" id="manager">
+    <div class="modalNew">
+        <div class="modalNew-title"><? the_field('titleManager', 'options'); ?></div>
+        <div class="modalNew-text"><? the_field('textManager', 'options'); ?></div>
+        <div class="modalNew-form">
+            <?= do_shortcode('[contact-form-7 id="116" title="Header стать партнером"]'); ?>
+        </div>
+        <div class="modalNew-checkbox__wrapper">
+            <div class="modalNew-checkbox">
+                <img src="<?= THEME_URL ?>/img/form/check.png" alt="check" class="modalNew-checkbox__img">
+                <div class="modalNew-checkbox__text">
+                    нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#policy" data-fancybox class="link">политикой конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="policy-wrapper" id="policy">
     <div class="policy">
         <div class="policy-title">Политика конфиденциальности</div>

@@ -178,25 +178,25 @@ get_filename();
 <section class="sertificates section" id="sertificates">
     <div class="container clients-container">
         <h2 class="clients-title title"><?php the_field('sertificatesTitle'); ?></h2>
-        
+
         <?php if (have_rows('sertificatesList')): ?>
             <!-- Основной слайдер -->
             <div class="sertificates-slider swiper">
                 <div class="swiper-wrapper">
-                    <?php while (have_rows('sertificatesList')) : the_row(); 
+                    <?php while (have_rows('sertificatesList')) : the_row();
                         $image_id = get_sub_field('sertificateImage');
                         $image_url = wp_get_attachment_image_url($image_id, 'large');
                         $image_thumb = wp_get_attachment_image_url($image_id, 'large');
                     ?>
                         <div class="swiper-slide" data-image="<?php echo $image_url; ?>">
-                            <img src="<?php echo $image_thumb; ?>" 
-                                 alt="Сертификат" 
-                                 class="sertificate-image">
+                            <img src="<?php echo $image_thumb; ?>"
+                                alt="Сертификат"
+                                class="sertificate-image">
                             <div class="zoom-icon">🔍</div>
                         </div>
                     <?php endwhile; ?>
                 </div>
-                
+
                 <!-- Навигация -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -226,7 +226,7 @@ get_filename();
                 <? while (have_rows('resultList')) : the_row(); ?>
                     <div class="result-list__item" data-aos="fade-up">
                         <div class="result-list__item-number">
-                            <img src="<?= wp_get_attachment_image_url(get_sub_field('image'), 'medum'); ?>" alt="" class="result-list__item-number__content svg">
+                            <img src="<?= wp_get_attachment_image_url(get_sub_field('image'), 'medium'); ?>" alt="" class="result-list__item-number__content svg">
                         </div>
                         <div class="result-list__item-title"><? the_sub_field('title'); ?></div>
                         <div class="result-list__item-text"><? the_sub_field('text'); ?></div>
@@ -280,6 +280,28 @@ get_filename();
     </div>
     <div class="form-bg">
         <img src="<?= THEME_URL ?>/img/form/logo.png" alt="logo" class="form-bg__img">
+    </div>
+</section>
+
+<section class="result section" id="result" style="background-image: url(<?= wp_get_attachment_image_url(get_field('managerImage'), 'full'); ?>)">
+    <div class="container manager-container">
+        <h2 class="manager-title result-title title"><? the_field('managerTitle'); ?></h2>
+        <? if (have_rows('managerList')) { ?>
+            <div class="manager-list result-list">
+                <? while (have_rows('managerList')) : the_row(); ?>
+                    <div class="manager-list__item result-list__item" data-aos="fade-up">
+                        <div class="manager-list__item-number result-list__item-number">
+                            <img src="<?= wp_get_attachment_image_url(get_sub_field('image'), 'medium'); ?>" alt="" class="manager-list__item-number__content result-list__item-number__contentsvg">
+                        </div>
+                        <div class="manager-list__item-title result-list__item-title"><? the_sub_field('title'); ?></div>
+                        <div class="manager-list__item-text result-list__item-text"><? the_sub_field('text'); ?></div>
+                        <a data-fancybox data-src="#manager" href="javascript:;" data-touch="false" class="manager-list__item-button"><? the_sub_field('managerButton'); ?></a>
+                    </div>
+                    
+                <? endwhile; ?>
+                
+            </div>
+        <? } ?>
     </div>
 </section>
 
