@@ -260,6 +260,26 @@ get_filename();
         <?php endif; ?>
     </div>
 </section>
+<section class="cases section" id="cases">
+    <div class="container cases-container provide-container">
+        <h2 class="cases-title title provide-title"><? the_field('casesTitle'); ?></h2>
+        <? if (have_rows('casesList')) { ?>
+            <div class="cases-list provide-list">
+                <? while (have_rows('casesList')) : the_row(); ?>
+                    <div class="cases-list__item provide-list__item">
+                        <div class="cases-list__item-text provide-list__item-text">
+                            <p class="cases-list__item-title provide-list__item-title"><? the_sub_field('title'); ?></p>
+                            <p class="cases-list__item-list provide-list__item-list"><? the_sub_field('sum'); ?></p>
+                            <p class="cases-list__item-list provide-list__item-list"><? the_sub_field('period'); ?></p>
+                            <p class="cases-list__item-list provide-list__item-list"><? the_sub_field('text'); ?></p>
+                            <p class="cases-list__item-list provide-list__item-list"><? the_sub_field('result'); ?></p>
+                        </div>
+                    </div>
+                <? endwhile; ?>
+            </div>
+        <? } ?>
+    </div>
+</section>
 <section class="faq section">
     <div class="container faq-container">
         <h2 class="faq-title title"><? the_field('faqTitle'); ?></h2>
