@@ -247,97 +247,119 @@ $(document).ready(function () {
 })()
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Инициализация основного слайдера
-    const mainSwiper = new Swiper('.sertificates-slider', {
-        slidesPerView: 3,
-        spaceBetween: 20,
-        speed: 300,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            320: {
-                slidesPerView: 1,
-                spaceBetween: 10,
+    // Функция инициализации слайдера
+    function initSlider(selector) {
+        const swiper = new Swiper(selector, {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            speed: 300,
+            loop: true,
+            navigation: {
+                nextEl: `${selector} .swiper-button-next`,
+                prevEl: `${selector} .swiper-button-prev`,
             },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 15,
+            pagination: {
+                el: `${selector} .swiper-pagination`,
+                clickable: true,
             },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
+            breakpoints: {
+                320: { slidesPerView: 1, spaceBetween: 10 },
+                768: { slidesPerView: 2, spaceBetween: 15 },
+                1024: { slidesPerView: 3, spaceBetween: 20 },
             },
-        },
-    })
+        });
+
+        return swiper;
+    }
+
+    // Инициализация слайдеров
+    const sertificatesSwiper = initSlider('.sertificates-slider');
+    const partnershipSwiper = initSlider('.partnership-slider');
 
     // Галерея - модальное окно
-    const modal = document.getElementById('galleryModal')
-    const modalImg = document.getElementById('modalImage')
-    const closeModal = document.querySelector('.close-modal')
-    const modalPrev = document.querySelector('.modal-prev')
-    const modalNext = document.querySelector('.modal-next')
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeModal = document.querySelector('.close-modal');
+    const modalPrev = document.querySelector('.modal-prev');
+    const modalNext = document.querySelector('.modal-next');
 
-// Открытие модального окна
-document
-    .querySelectorAll('.sertificates-slider .swiper-slide:not(.text-slide)')
-    .forEach((slide, index) => {
-        slide.addEventListener('click', function () {
-            const imageUrl = this.getAttribute('data-image')
-            if (imageUrl) {
-                modal.style.display = 'block'
-                modalImg.src = imageUrl
-            }
-        })
-    })
+    let currentSwiper = null;
 
-// Закрытие модального окна
-closeModal.addEventListener('click', function () {
-    modal.style.display = 'none'
-})
-
-// Навигация в модальном окне
-modalPrev.addEventListener('click', function () {
-    mainSwiper.slidePrev()
-    updateModalImage()
-
-})
-
-modalNext.addEventListener('click', function () {
-    mainSwiper.slideNext()
-    updateModalImage()
-
-})
-
-// Обновление изображения в модальном окне
-function updateModalImage() {
-    const activeSlide = document.querySelector(
-        '.sertificates-slider .swiper-slide-active'
-    )
-    if (activeSlide) {
-        const imageUrl = activeSlide.getAttribute('data-image')
-        modalImg.src = imageUrl
-        console.log(imageUrl)
+    // Функция открытия модального окна
+    function initModalForSlider(swiper, sliderSelector) {
+        document.querySelectorAll(`${sliderSelector} .swiper-slide`).forEach(slide => {
+            slide.addEventListener('click', function () {
+                const imageUrl = this.getAttribute('data-image');
+                if (imageUrl) {
+                    modal.style.display = 'block';
+                    modalImg.src = imageUrl;
+                    currentSwiper = swiper;
+                    
+                    // Сразу обновляем активный слайд
+                    updateModalImage();
+                }
+            });
+        });
     }
-}
+
+    // Инициализация модалок для обоих слайдеров
+    initModalForSlider(sertificatesSwiper, '.sertificates-slider');
+    initModalForSlider(partnershipSwiper, '.partnership-slider');
+
+    // Закрытие модального окна
+    closeModal.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    // Навигация в модальном окне
+    modalPrev.addEventListener('click', function () {
+        if (currentSwiper) {
+            currentSwiper.slidePrev();
+        }
+    });
+
+    modalNext.addEventListener('click', function () {
+        if (currentSwiper) {
+            currentSwiper.slideNext();
+        }
+    });
+
+    // Обновление изображения в модальном окне через событие Swiper
+    function initSwiperEvents(swiper) {
+        swiper.on('slideChange', function() {
+            if (currentSwiper === swiper && modal.style.display === 'block') {
+                updateModalImage();
+            }
+        });
+    }
+
+    // Инициализируем события для обоих слайдеров
+    initSwiperEvents(sertificatesSwiper);
+    initSwiperEvents(partnershipSwiper);
+
+    // Обновление изображения в модальном окне
+    function updateModalImage() {
+        if (currentSwiper) {
+            // Используем реальный активный слайд из Swiper
+            const activeSlide = currentSwiper.slides[currentSwiper.activeIndex];
+            const imageUrl = activeSlide.getAttribute('data-image');
+            if (imageUrl) {
+                modalImg.src = imageUrl;
+            }
+        }
+    }
 
     // Закрытие по клику вне изображения
     modal.addEventListener('click', function (e) {
         if (e.target === modal) {
-            modal.style.display = 'none'
+            modal.style.display = 'none';
         }
-    })
+    });
 
     // Закрытие по ESC
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            modal.style.display = 'none'
+            modal.style.display = 'none';
         }
-    })
-})
+    });
+});

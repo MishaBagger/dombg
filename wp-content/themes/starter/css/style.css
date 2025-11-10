@@ -2637,11 +2637,31 @@ div.wpcf7-response-output {
   background-color: #dbaa4b;
 }
 
+
+
+.partnership-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.partnership-image {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+}
+
 @media (max-width: 1210px) {
 
   .manager-list {
     grid-template-columns: repeat(2, 1fr);
 
+  }
+
+  .partnership-wrapper {
+    grid-template-columns: repeat(2, 1fr);
   }
 
 }
@@ -2652,5 +2672,12 @@ div.wpcf7-response-output {
     grid-template-columns: repeat(1, 1fr);
 
   }
+
+  
 }
 
+@media (max-width: 550px) {
+  .partnership-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

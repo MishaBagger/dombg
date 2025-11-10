@@ -187,6 +187,26 @@ get_filename();
         </div>
     </div>
 </div>
+<section class="partnership section" id="partnership">
+    <div class="container partnership-container">
+        <h2 class="clients-title title"><?php the_field('partnershipTitle'); ?></h2>
+
+        <?php if (have_rows('partnershipList')): ?>
+            <div class="partnership-wrapper">
+                <?php while (have_rows('partnershipList')) : the_row();
+                    $image_id = get_sub_field('partnershipImage');
+                    $image_url = wp_get_attachment_image_url($image_id, 'large');
+                    $image_thumb = wp_get_attachment_image_url($image_id, 'large');
+                ?>
+                    <img src="<?php echo $image_thumb; ?>"
+                        alt="Сертификат"
+                        class="partnership-image">
+                <?php endwhile; ?>
+            </div>
+
+        <?php endif; ?>
+    </div>
+</section>
 <section class="result section" id="result" style="background-image: url(<?= wp_get_attachment_image_url(get_field('resultImage'), 'full'); ?>)">
     <div class="container result-container">
         <h2 class="result-title title"><? the_field('resultTitle'); ?></h2>
@@ -304,7 +324,6 @@ get_filename();
         <? } ?>
     </div>
 </section>
-
 <?php
 get_filename();
 get_footer();
