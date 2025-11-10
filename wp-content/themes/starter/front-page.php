@@ -103,15 +103,31 @@ get_filename();
 <section class="provide section" id="provide">
     <div class="container provide-container">
         <h2 class="provide-title title"><? the_field('provideTitle'); ?></h2>
-        <? if (have_rows('provideList')) { ?>
+        <? if (have_rows('provideListGuarantees')) { ?>
+            <h3 class="subtitle"><?php the_field('provideSubtitleGuarantees'); ?></h3>
             <div class="provide-list">
-                <? while (have_rows('provideList')) : the_row(); ?>
+                <? while (have_rows('provideListGuarantees')) : the_row(); ?>
                     <div class="provide-list__item">
                         <div class="provide-list__item-text">
                             <div class="provide-list__item-title"><? the_sub_field('title'); ?></div>
                             <div class="provide-list__item-list"><? the_sub_field('text'); ?></div>
                         </div>
                         <a data-fancybox data-src="#modal4" href="javascript:;" data-touch="false" class="provide-list__item-button">Оформить заявку</a>
+                    </div>
+                <? endwhile; ?>
+            </div>
+        <? } ?>
+
+        <? if (have_rows('provideListCredits')) { ?>
+            <h3 class="subtitle"><?php the_field('provideSubtitleCredits'); ?></h3>
+            <div class="provide-list">
+                <? while (have_rows('provideListCredits')) : the_row(); ?>
+                    <div class="provide-list__item">
+                        <div class="provide-list__item-text">
+                            <div class="provide-list__item-title"><? the_sub_field('title'); ?></div>
+                            <div class="provide-list__item-list"><? the_sub_field('text'); ?></div>
+                        </div>
+                        <a data-fancybox data-src="#modal-credits" href="javascript:;" data-touch="false" class="provide-list__item-button">Оформить заявку</a>
                     </div>
                 <? endwhile; ?>
             </div>

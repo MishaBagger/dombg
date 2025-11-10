@@ -353,7 +353,7 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
 					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма в меню кредитования',
+					'SOURCE_DESCRIPTION' => 'Форма в меню кредитования или в разделе услуг',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
