@@ -2624,18 +2624,13 @@ div.wpcf7-response-output {
   /* background-color: #314761; */
 }
 
-.manager-list__item-button {
+.manager-buttons__item-link {
   display: inline-block;
   text-align: center;
   padding: 20px;
   margin-block: 20px;
-  background-color: #2C3A83;
-  font-size: 20px;
   text-transform: uppercase;
-  font-weight: 700;
   letter-spacing: 0.5px;
-  color: #ffffff;
-  transition: .3s color, .3s background-color;
 }
 
 .manager-list__item-button:hover {

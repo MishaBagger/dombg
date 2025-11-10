@@ -175,37 +175,6 @@ get_filename();
         <? } ?>
     </div>
 </section>
-<section class="sertificates section" id="sertificates">
-    <div class="container clients-container">
-        <h2 class="clients-title title"><?php the_field('sertificatesTitle'); ?></h2>
-
-        <?php if (have_rows('sertificatesList')): ?>
-            <!-- Основной слайдер -->
-            <div class="sertificates-slider swiper">
-                <div class="swiper-wrapper">
-                    <?php while (have_rows('sertificatesList')) : the_row();
-                        $image_id = get_sub_field('sertificateImage');
-                        $image_url = wp_get_attachment_image_url($image_id, 'large');
-                        $image_thumb = wp_get_attachment_image_url($image_id, 'large');
-                    ?>
-                        <div class="swiper-slide" data-image="<?php echo $image_url; ?>">
-                            <img src="<?php echo $image_thumb; ?>"
-                                alt="Сертификат"
-                                class="sertificate-image">
-                            <div class="zoom-icon">🔍</div>
-                        </div>
-                    <?php endwhile; ?>
-                </div>
-
-                <!-- Навигация -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-
-        <?php endif; ?>
-    </div>
-</section>
 
 <!-- Модальное окно для галереи -->
 <div id="galleryModal" class="gallery-modal">
@@ -238,6 +207,37 @@ get_filename();
             <a data-fancybox data-src="#modal3" href="javascript:;" data-touch="false" class="result-btn__content btn-filled">Получить банковскую гарантию</a>
         </div>
         <div class="result-text"><? the_field('resultText'); ?></div>
+    </div>
+</section>
+<section class="sertificates section" id="sertificates">
+    <div class="container clients-container">
+        <h2 class="clients-title title"><?php the_field('sertificatesTitle'); ?></h2>
+
+        <?php if (have_rows('sertificatesList')): ?>
+            <!-- Основной слайдер -->
+            <div class="sertificates-slider swiper">
+                <div class="swiper-wrapper">
+                    <?php while (have_rows('sertificatesList')) : the_row();
+                        $image_id = get_sub_field('sertificateImage');
+                        $image_url = wp_get_attachment_image_url($image_id, 'large');
+                        $image_thumb = wp_get_attachment_image_url($image_id, 'large');
+                    ?>
+                        <div class="swiper-slide" data-image="<?php echo $image_url; ?>">
+                            <img src="<?php echo $image_thumb; ?>"
+                                alt="Сертификат"
+                                class="sertificate-image">
+                            <div class="zoom-icon">🔍</div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+
+                <!-- Навигация -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        <?php endif; ?>
     </div>
 </section>
 <section class="faq section">
@@ -295,11 +295,11 @@ get_filename();
                         </div>
                         <div class="manager-list__item-title result-list__item-title"><? the_sub_field('title'); ?></div>
                         <div class="manager-list__item-text result-list__item-text"><? the_sub_field('text'); ?></div>
-                        <a data-fancybox data-src="#manager" href="javascript:;" data-touch="false" class="manager-list__item-button"><? the_sub_field('managerButton'); ?></a>
+                        <a data-fancybox data-src="#manager" href="javascript:;" data-touch="false" class="manager-buttons__item-link btn-transparent"><? the_sub_field('managerButton'); ?></a>
                     </div>
-                    
+
                 <? endwhile; ?>
-                
+
             </div>
         <? } ?>
     </div>
