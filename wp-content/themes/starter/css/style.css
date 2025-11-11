@@ -2404,6 +2404,12 @@ div.wpcf7-response-output {
   margin-bottom: 30px;
 }
 
+.modal-text {
+  font-size: 18px;
+  letter-spacing: 0.45px;
+  margin-bottom: 10px;
+}
+
 .modal-input {
   width: 100%;
   margin-bottom: 15px;

@@ -61,6 +61,11 @@
     <div class="modal">
         <div class="modal-title"><? the_field('title_tender', 'options'); ?></div>
         <div class="modal-subtitle"><? the_field('subtitle_tender', 'options'); ?></div>
+
+        
+    <a class="modal-text" href="<?php the_field('tender_price', 'options') ?>" target="_blank">
+        <?php the_field('text_tender', 'options') ?>
+    </a>
         <?= do_shortcode('[contact-form-7 id="221" title="Тендерное сопровождение"]'); ?>
     </div>
     <div class="modal-wrapper" id="modal-guarantees">
