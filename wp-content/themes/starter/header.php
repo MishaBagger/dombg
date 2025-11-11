@@ -93,12 +93,19 @@
                                             <?php echo $text; ?>
                                         </a>
 
+                                    <?php elseif ($link_type === 'internal') : ?>
+                                        <!-- Внутренняя ссылка -->
+                                        <a href="<?php the_sub_field('internal_url'); ?>" class="header-content__nav-item" target="_blank">
+                                            <?php echo $text; ?>
+                                        </a>
+
                                     <?php elseif ($link_type === 'external') : ?>
                                         <!-- Внешняя ссылка -->
                                         <a href="<?php the_sub_field('external_url'); ?>" class="header-content__nav-item" target="_blank">
                                             <?php echo $text; ?>
                                         </a>
                                     <?php endif; ?>
+
 
                                 <?php endwhile; ?>
                             </nav>
