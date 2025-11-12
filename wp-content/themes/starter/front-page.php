@@ -166,6 +166,18 @@ get_filename();
                 <? endwhile; ?>
             </div>
         <? } ?>
+        <h3 class="subtitle"><?php the_field('provideDocumentsTitle'); ?></h3>
+        <? if (have_rows('provideDocuments')) { ?>
+            <? while (have_rows('provideDocuments')) : the_row(); ?>
+
+                <h3 class="provide-list__item-title"><? the_sub_field('title'); ?></h3>
+                <p class="provide-list__item-list"><? the_sub_field('text'); ?></p>
+                <a class="provide-list__item-list" href="<? echo get_sub_field('file')['url']; ?>" target="_blank"><? echo get_sub_field('file')['filename']; ?></a>
+
+
+            <? endwhile; ?>
+
+        <? } ?>
     </div>
 </section>
 <section class="number section" style="background-image: url(<?= wp_get_attachment_image_url(get_field('numberImage'), 'full'); ?>)">
