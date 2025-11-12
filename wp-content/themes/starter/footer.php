@@ -98,15 +98,15 @@
     </div>
     <div class="modal-wrapper" id="modal-leasing">
         <div class="modal">
-            <div class="modal-title"><? the_field('title_credits', 'options'); ?></div>
-            <div class="modal-subtitle"><? the_field('subtitle_credits', 'options'); ?></div>
+            <div class="modal-title"><? the_field('title_leasing', 'options'); ?></div>
+            <div class="modal-subtitle"><? the_field('subtitle_leasing', 'options'); ?></div>
             <?= do_shortcode('[contact-form-7 id="343" title="Лизинг"]'); ?>
         </div>
     </div>
         <div class="modal-wrapper" id="modal-factoring">
         <div class="modal">
-            <div class="modal-title"><? the_field('title_credits', 'options'); ?></div>
-            <div class="modal-subtitle"><? the_field('subtitle_credits', 'options'); ?></div>
+            <div class="modal-title"><? the_field('title_factoring', 'options'); ?></div>
+            <div class="modal-subtitle"><? the_field('subtitle_factoring', 'options'); ?></div>
             <?= do_shortcode('[contact-form-7 id="344" title="Факторинг"]'); ?>
         </div>
     </div>
