@@ -188,11 +188,11 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Заявка на консультацию от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма консультации',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма консультации',
 					'COMMENTS' => 'Запрос на консультацию с сайта dombg.org'
 				]
 			];
@@ -208,6 +208,9 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
 					// ИНН
 					'UF_CRM_1724843163167' => $data['inn'] ?? '',
 					// НОМЕР ЗАКУПКИ
@@ -215,9 +218,6 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 
 					'SOURCE_ID' => 'WEB',
 					'SOURCE_DESCRIPTION' => 'Форма оформления гарантии',
-					'PHONE' => [
-						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
-					],
 					'COMMENTS' => 'Запрос на оформление гарантии с сайта dombg.org'
 				]
 			];
@@ -232,6 +232,9 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
 					// ТИП ГАРАНТИИ
 					'UF_CRM_VIDOBESPECHEN' => $data['type'] ?? '',
 					// СУММА ГАРАНТИИ
@@ -241,9 +244,6 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 
 					'SOURCE_ID' => 'WEB',
 					'SOURCE_DESCRIPTION' => 'Форма оформления гарантии',
-					'PHONE' => [
-						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
-					],
 					'COMMENTS' => 'Запрос на оформление гарантии с сайта dombg.org'
 				]
 			];
@@ -255,11 +255,11 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Заявка на консультацию от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма консультации в подвале сайта',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма консультации в подвале сайта',
 					'COMMENTS' => 'Запрос на консультацию с сайта dombg.org'
 				]
 			];
@@ -275,11 +275,11 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма партнёрства',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма партнёрства',
 					'COMMENTS' => 'Заявка на партнёрство с сайта dombg.org'
 				]
 			];
@@ -295,12 +295,12 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
-					'UF_CRM_VIDOBESPECHEN' => $data['guarantee'] ?? '',
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Карточка оформления гарантии',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'UF_CRM_VIDOBESPECHEN' => $data['guarantee'] ?? '',
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Карточка оформления гарантии',
 					'COMMENTS' => 'Запрос на оформление гарантии с сайта dombg.org'
 				]
 			];
@@ -315,11 +315,11 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма оформления гарантии после партнёров',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма оформления гарантии после партнёров',
 					'COMMENTS' => 'Запрос на оформление гарантии с сайта dombg.org'
 				]
 			];
@@ -334,11 +334,11 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма в меню оформления тендерного сопровождения',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню оформления тендерного сопровождения',
 					'COMMENTS' => 'Запрос на оформление тендерного сопровождения с сайта dombg.org'
 				]
 			];
@@ -349,14 +349,16 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Оформление кредитования от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
+					// ИНН заёмщика (ИНН)
+					'UF_CRM_1724843163167' => $data['inn'] ?? '',
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма в меню кредитования или в разделе услуг',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню кредитования или в разделе услуг',
 					'COMMENTS' => 'Запрос на кредитование с сайта dombg.org'
 				]
 			];
@@ -371,11 +373,11 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма в меню страхования СМР',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню страхования СМР',
 					'COMMENTS' => 'Запрос на страхование строительно-монтажных рисков с сайта dombg.org'
 				]
 			];
@@ -390,12 +392,56 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
-					'SOURCE_ID' => 'WEB',
-					'SOURCE_DESCRIPTION' => 'Форма в меню защиты в ФАС',
 					'PHONE' => [
 						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в меню защиты в ФАС',
 					'COMMENTS' => 'Запрос на защиту в ФАС с сайта dombg.org'
+				]
+			];
+			break;
+
+		// [contact-form-7 id="343" title="Лизинг"]
+		case 343:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Оформление лизинга от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					// ИНН заёмщика (ИНН)
+					'UF_CRM_1724843163167' => $data['inn'] ?? '',
+					// ИНН продавца (поставщика)
+					'UF_CRM_1762946285725' => $data['innSeller'] ?? '',
+					'COMMENTS' => $data['comments'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в разделе лизинга',
+				]
+			];
+			break;
+
+		// [contact-form-7 id="344" title="Факторинг"]
+		case 344:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Оформление факторинга от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					// ИНН заёмщика (ИНН)
+					'UF_CRM_1724843163167' => $data['inn'] ?? '',
+					'COMMENTS' => $data['comments'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма в разделе факторинга',
 				]
 			];
 			break;

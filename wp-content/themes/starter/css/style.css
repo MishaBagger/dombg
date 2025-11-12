@@ -115,7 +115,7 @@ body {
   padding: 100px 0 120px 0;
 }
 
-input {
+input, textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 100%;
@@ -2413,6 +2413,11 @@ div.wpcf7-response-output {
 .modal-input {
   width: 100%;
   margin-bottom: 15px;
+}
+
+.modal-textarea {
+  width: 100%;
+  resize: none;
 }
 
 .modal-policy {

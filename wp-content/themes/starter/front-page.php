@@ -109,8 +109,9 @@ get_filename();
                 <? while (have_rows('provideListGuarantees')) : the_row(); ?>
                     <div class="provide-list__item">
                         <div class="provide-list__item-text">
-                            <div class="provide-list__item-title"><? the_sub_field('title'); ?></div>
-                            <div class="provide-list__item-list"><? the_sub_field('text'); ?></div>
+                            <h3 class="provide-list__item-title"><? the_sub_field('title'); ?></h3>
+                            <p class="provide-list__item-list"><? the_sub_field('text'); ?></p>
+                            <p class="provide-list__item-list"><? the_sub_field('situation'); ?></p>
                         </div>
                         <a data-fancybox data-src="#modal4" href="javascript:;" data-touch="false" class="provide-list__item-button">Оформить заявку</a>
                     </div>
@@ -124,10 +125,43 @@ get_filename();
                 <? while (have_rows('provideListCredits')) : the_row(); ?>
                     <div class="provide-list__item">
                         <div class="provide-list__item-text">
-                            <div class="provide-list__item-title"><? the_sub_field('title'); ?></div>
-                            <div class="provide-list__item-list"><? the_sub_field('text'); ?></div>
+                            <h3 class="provide-list__item-title"><? the_sub_field('title'); ?></h3>
+                            <p class="provide-list__item-list"><? the_sub_field('text'); ?></p>
+                            <p class="provide-list__item-list"><? the_sub_field('situation'); ?></p>
                         </div>
                         <a data-fancybox data-src="#modal-credits" href="javascript:;" data-touch="false" class="provide-list__item-button">Оформить заявку</a>
+                    </div>
+                <? endwhile; ?>
+            </div>
+        <? } ?>
+
+        <? if (have_rows('provideListLeasing')) { ?>
+            <h3 class="subtitle"><?php the_field('provideSubtitleLeasing'); ?></h3>
+            <div class="provide-list">
+                <? while (have_rows('provideListLeasing')) : the_row(); ?>
+                    <div class="provide-list__item">
+                        <div class="provide-list__item-text">
+                            <h3 class="provide-list__item-title"><? the_sub_field('title'); ?></h3>
+                            <p class="provide-list__item-list"><? the_sub_field('text'); ?></p>
+                            <p class="provide-list__item-list"><? the_sub_field('situation'); ?></p>
+                        </div>
+                        <a data-fancybox data-src="#modal-leasing" href="javascript:;" data-touch="false" class="provide-list__item-button">Оформить заявку</a>
+                    </div>
+                <? endwhile; ?>
+            </div>
+        <? } ?>
+
+        <? if (have_rows('provideListFactoring')) { ?>
+            <h3 class="subtitle"><?php the_field('provideSubtitleFactoring'); ?></h3>
+            <div class="provide-list">
+                <? while (have_rows('provideListFactoring')) : the_row(); ?>
+                    <div class="provide-list__item">
+                        <div class="provide-list__item-text">
+                            <h3 class="provide-list__item-title"><? the_sub_field('title'); ?></h3>
+                            <p class="provide-list__item-list"><? the_sub_field('text'); ?></p>
+                            <p class="provide-list__item-list"><? the_sub_field('situation'); ?></p>
+                        </div>
+                        <a data-fancybox data-src="#modal-factoring" href="javascript:;" data-touch="false" class="provide-list__item-button">Оформить заявку</a>
                     </div>
                 <? endwhile; ?>
             </div>
