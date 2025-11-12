@@ -83,7 +83,7 @@
 
                                     <?php if ($link_type === 'anchor') : ?>
                                         <!-- Обычный якорь -->
-                                        <a href="#<?php echo $anchor; ?>" class="header-content__nav-item" data-scroll="true">
+                                        <a href="/#<?php echo $anchor; ?>" class="header-content__nav-item" data-scroll="true">
                                             <?php echo $text; ?>
                                         </a>
 
@@ -95,7 +95,7 @@
 
                                     <?php elseif ($link_type === 'internal') : ?>
                                         <!-- Внутренняя ссылка -->
-                                        <a href="<?php the_sub_field('internal_url'); ?>" class="header-content__nav-item" target="_blank">
+                                        <a href="<?php the_sub_field('internal_url'); ?>" class="header-content__nav-item">
                                             <?php echo $text; ?>
                                         </a>
 
@@ -108,13 +108,13 @@
                                     <?php elseif ($link_type === 'popup') : ?>
                                         <!-- Добавляем обертку и подменю -->
                                         <div class="nav-item-wrapper">
-                                            <a href="#form" class="header-content__nav-item" data-scroll="true">
+                                            <a href="/#form" class="header-content__nav-item" data-scroll="true">
                                                 Гарантии
                                             </a>
                                             <!-- Выпадающее подменю -->
                                             <div class="dropdown-menu">
                                                 <? while (have_rows('submenu')) : the_row(); ?>
-                                                    <a href="#<?php the_sub_field('anchor_submenu'); ?>" class="dropdown-item" data-scroll="true"><?php the_sub_field('title_submenu'); ?></a>
+                                                    <a href="/#<?php the_sub_field('anchor_submenu'); ?>" class="dropdown-item" data-scroll="true"><?php the_sub_field('title_submenu'); ?></a>
                                                 <? endwhile; ?>
                                             </div>
                                         </div>

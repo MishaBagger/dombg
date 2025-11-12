@@ -42,7 +42,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 add_filter('admin_footer_text', function () {
-	echo 'Developed by Ivan Tsimbalist';
+	echo 'Developed by Misha Kalinin';
 });
 
 add_action('wp_dashboard_setup', function () {
@@ -57,7 +57,7 @@ add_action('wp_dashboard_setup', function () {
 	remove_meta_box('dashboard_primary', 'dashboard', 'side');
 	remove_meta_box('dashboard_secondary', 'dashboard', 'side');
 	wp_add_dashboard_widget('dashboard_widget', 'Wordpress programmer', function () {
-		echo 'Developed by Ivan Tsimbalist';
+		echo 'Developed by Misha Kalinin';
 	});
 });
 

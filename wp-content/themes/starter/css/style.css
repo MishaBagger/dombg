@@ -1110,6 +1110,29 @@ div.wpcf7-response-output {
   box-shadow: nones;
 }
 
+.baza-list__item {
+  flex-grow: 1;
+  margin: 0 15px 30px 15px;
+  flex-basis: 370px;
+  background-color: #ffffff;
+  box-shadow: 5px 9px 38px 1px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: .3s background-color, .3s box-shadow;
+  display: flex;
+  flex-direction: column;
+}
+
+.baza-list__item::before {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  height: 6px;
+  width: 50px;
+  background-color: #e8c88b;
+  content: '';
+  display: block;
+}
+
 .provide-list__item:hover .provide-list__item-more__content {
   color: #ffffff;
 }
