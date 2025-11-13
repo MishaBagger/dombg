@@ -151,11 +151,17 @@ $(document).ready(function () {
 
             if (target.dataset.scroll === 'true') {
                 event.preventDefault()
-                document
-                    .querySelector(target.closest('a').getAttribute('href'))
-                    .scrollIntoView({ block: 'start', behavior: 'smooth' })
-            }
 
+                const href = target.closest('a').getAttribute('href')
+                const anchor = href.split('#')[1]
+
+                if (anchor) {
+                    document.getElementById(anchor)?.scrollIntoView({
+                        block: 'start',
+                        behavior: 'smooth',
+                    })
+                }
+            }
             if (target.closest('.customSelect')) {
                 target.closest('.customSelect').classList.toggle('open')
             }
@@ -267,84 +273,86 @@ document.addEventListener('DOMContentLoaded', function () {
                 768: { slidesPerView: 2, spaceBetween: 15 },
                 1024: { slidesPerView: 3, spaceBetween: 20 },
             },
-        });
+        })
 
-        return swiper;
+        return swiper
     }
 
     // Инициализация слайдеров
-    const sertificatesSwiper = initSlider('.sertificates-slider');
-    const partnershipSwiper = initSlider('.partnership-slider');
+    const sertificatesSwiper = initSlider('.sertificates-slider')
+    const partnershipSwiper = initSlider('.partnership-slider')
 
     // Галерея - модальное окно
-    const modal = document.getElementById('galleryModal');
-    const modalImg = document.getElementById('modalImage');
-    const closeModal = document.querySelector('.close-modal');
-    const modalPrev = document.querySelector('.modal-prev');
-    const modalNext = document.querySelector('.modal-next');
+    const modal = document.getElementById('galleryModal')
+    const modalImg = document.getElementById('modalImage')
+    const closeModal = document.querySelector('.close-modal')
+    const modalPrev = document.querySelector('.modal-prev')
+    const modalNext = document.querySelector('.modal-next')
 
-    let currentSwiper = null;
+    let currentSwiper = null
 
     // Функция открытия модального окна
     function initModalForSlider(swiper, sliderSelector) {
-        document.querySelectorAll(`${sliderSelector} .swiper-slide`).forEach(slide => {
-            slide.addEventListener('click', function () {
-                const imageUrl = this.getAttribute('data-image');
-                if (imageUrl) {
-                    modal.style.display = 'block';
-                    modalImg.src = imageUrl;
-                    currentSwiper = swiper;
-                    
-                    // Сразу обновляем активный слайд
-                    updateModalImage();
-                }
-            });
-        });
+        document
+            .querySelectorAll(`${sliderSelector} .swiper-slide`)
+            .forEach((slide) => {
+                slide.addEventListener('click', function () {
+                    const imageUrl = this.getAttribute('data-image')
+                    if (imageUrl) {
+                        modal.style.display = 'block'
+                        modalImg.src = imageUrl
+                        currentSwiper = swiper
+
+                        // Сразу обновляем активный слайд
+                        updateModalImage()
+                    }
+                })
+            })
     }
 
     // Инициализация модалок для обоих слайдеров
-    initModalForSlider(sertificatesSwiper, '.sertificates-slider');
-    initModalForSlider(partnershipSwiper, '.partnership-slider');
+    initModalForSlider(sertificatesSwiper, '.sertificates-slider')
+    initModalForSlider(partnershipSwiper, '.partnership-slider')
 
     // Закрытие модального окна
     closeModal.addEventListener('click', function () {
-        modal.style.display = 'none';
-    });
+        modal.style.display = 'none'
+    })
 
     // Навигация в модальном окне
     modalPrev.addEventListener('click', function () {
         if (currentSwiper) {
-            currentSwiper.slidePrev();
+            currentSwiper.slidePrev()
         }
-    });
+    })
 
     modalNext.addEventListener('click', function () {
         if (currentSwiper) {
-            currentSwiper.slideNext();
+            currentSwiper.slideNext()
         }
-    });
+    })
 
     // Обновление изображения в модальном окне через событие Swiper
     function initSwiperEvents(swiper) {
-        swiper.on('slideChange', function() {
+        swiper.on('slideChange', function () {
             if (currentSwiper === swiper && modal.style.display === 'block') {
-                updateModalImage();
+                updateModalImage()
             }
-        });
+        })
     }
 
     // Инициализируем события для обоих слайдеров
-    initSwiperEvents(sertificatesSwiper);
-    initSwiperEvents(partnershipSwiper);
+    initSwiperEvents(sertificatesSwiper)
+    initSwiperEvents(partnershipSwiper)
 
     // Обновление изображения в модальном окне
     function updateModalImage() {
         if (currentSwiper) {
             // Используем реальный активный слайд из Swiper
-            const activeSlide = currentSwiper.slides[currentSwiper.activeIndex];
-            const imageUrl = activeSlide.getAttribute('data-image');
+            const activeSlide = currentSwiper.slides[currentSwiper.activeIndex]
+            const imageUrl = activeSlide.getAttribute('data-image')
             if (imageUrl) {
-                modalImg.src = imageUrl;
+                modalImg.src = imageUrl
             }
         }
     }
@@ -352,14 +360,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Закрытие по клику вне изображения
     modal.addEventListener('click', function (e) {
         if (e.target === modal) {
-            modal.style.display = 'none';
+            modal.style.display = 'none'
         }
-    });
+    })
 
     // Закрытие по ESC
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            modal.style.display = 'none';
+            modal.style.display = 'none'
         }
-    });
-});
+    })
+})

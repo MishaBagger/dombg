@@ -411,7 +411,7 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					// ИНН заёмщика (ИНН)
 					'UF_CRM_1724843163167' => $data['inn'] ?? '',
 					// ИНН продавца (поставщика)
-					'UF_CRM_1762946285725' => $data['innSeller'] ?? '',
+					'UF_CRM_1762946285725' => $data['inn_seller'] ?? '',
 					'COMMENTS' => $data['comments'] ?? '',
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
@@ -444,6 +444,26 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					'SOURCE_DESCRIPTION' => 'Форма в разделе факторинга',
 				]
 			];
+			break;
+
+		// [contact-form-7 id="489" title="Менеджер"]
+		case 489:
+			$bitrix_data = [
+				'fields' => [
+					'TITLE' => 'Заявка к менеджеру от ' . ($data['fio'] ?? ''),
+					'NAME' => $data['fio'] ?? '',
+					'EMAIL' => [
+						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'PHONE' => [
+						['VALUE' => $data['phone'] ?? '', 'VALUE_TYPE' => 'WORK']
+					],
+					'SOURCE_ID' => 'WEB',
+					'SOURCE_DESCRIPTION' => 'Форма менеджера',
+					'COMMENTS' => 'Заявка с формы менеджера с сайта dombg.org'
+				]
+			];
+
 			break;
 
 		default:

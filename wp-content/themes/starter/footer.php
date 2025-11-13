@@ -133,7 +133,7 @@
         <div class="modalNew-title"><? the_field('titleManager', 'options'); ?></div>
         <div class="modalNew-text"><? the_field('textManager', 'options'); ?></div>
         <div class="modalNew-form">
-            <?= do_shortcode('[contact-form-7 id="116" title="Header стать партнером"]'); ?>
+            <?= do_shortcode('[contact-form-7 id="489" title="Менеджер"]'); ?>
         </div>
         <div class="modalNew-checkbox__wrapper">
             <div class="modalNew-checkbox">
