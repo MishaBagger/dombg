@@ -389,6 +389,7 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 				'fields' => [
 					'TITLE' => 'Оформление защиты в ФАС от ' . ($data['fio'] ?? ''),
 					'NAME' => $data['fio'] ?? '',
+					'COMMENTS' => $data['comments'] ?? '',
 					'EMAIL' => [
 						['VALUE' => $data['email'] ?? '', 'VALUE_TYPE' => 'WORK']
 					],
@@ -397,7 +398,6 @@ add_action('wpcf7_mail_sent', function ($contact_form) {
 					],
 					'SOURCE_ID' => 'WEB',
 					'SOURCE_DESCRIPTION' => 'Форма в меню защиты в ФАС',
-					'COMMENTS' => 'Запрос на защиту в ФАС с сайта dombg.org'
 				]
 			];
 			break;
